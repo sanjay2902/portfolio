@@ -9,13 +9,48 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  padding: 22px 28px;
+  padding: 24px 28px;
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated gradient left border on hover */
+.achievement-item::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent-gradient);
+  background-size: 100% 200%;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: gradient-slide 3s linear infinite;
+}
+
+@keyframes gradient-slide {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+.achievement-item:hover::after {
+  opacity: 1;
+}
+
+.achievement-item:hover {
+  background: var(--bg-card-hover);
+  border-color: transparent;
+  box-shadow: var(--glow-cyan);
 }
 
 .achievement-item__icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   flex-shrink: 0;
   margin-top: 2px;
+  display: inline-block;
 }
 
 .achievement-item__text {
@@ -40,7 +75,8 @@
 }
 
 .responsibility__label-icon {
-  color: var(--accent-cyan);
+  color: var(--accent-violet);
+  filter: drop-shadow(0 0 6px var(--accent-violet-glow));
 }
 
 .responsibility__card {
@@ -51,7 +87,10 @@
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--accent-cyan);
+  background: var(--accent-gradient-vivid);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
 }
 

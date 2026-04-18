@@ -40,12 +40,22 @@ const Navbar = () => {
     }
   };
 
+  const mobileItemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.08, duration: 0.3, ease: 'easeOut' },
+    }),
+    exit: { opacity: 0, x: 30, transition: { duration: 0.2 } },
+  };
+
   return (
     <motion.nav
       className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="navbar__container container">
         <a
@@ -90,25 +100,30 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer with staggered slide-in */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             className="navbar__mobile"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link, i) => (
+              <motion.a
                 key={link.href}
                 href={link.href}
                 className="navbar__mobile-link"
                 onClick={(e) => handleNavClick(e, link.href)}
+                custom={i}
+                variants={mobileItemVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
           </motion.div>
         )}

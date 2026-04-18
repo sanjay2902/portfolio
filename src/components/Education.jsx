@@ -9,23 +9,36 @@ const Education = () => {
   return (
     <section className="section education" id="about">
       <div className="container">
-        <SectionHeading title="About Me" subtitle="Get to know me" />
+        <SectionHeading title="About Me" subtitle="Get to know me" number="01" />
 
         <motion.p
           className="education__bio"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           {personalInfo.bio}
         </motion.p>
 
-        <h3 className="education__label">
+        <motion.h3
+          className="education__label"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="education__label-accent">{'>'}</span> Education
-        </h3>
+        </motion.h3>
 
         <div className="education__timeline">
+          <motion.div
+            className="education__timeline-track"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          />
           {education.map((item, index) => (
             <TimelineItem key={index} item={item} index={index} />
           ))}
@@ -42,12 +55,14 @@ const TimelineItem = ({ item, index }) => {
     <motion.div
       ref={ref}
       className="timeline-item"
-      initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, filter: 'blur(6px)' }}
+      animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="timeline-item__dot" />
-      <div className="timeline-item__card glass-card">
+      <div className="timeline-item__dot">
+        <span className="timeline-item__dot-pulse" />
+      </div>
+      <div className="timeline-item__card glass-card gradient-border">
         <h4 className="timeline-item__institution">{item.institution}</h4>
         <p className="timeline-item__degree">{item.degree}</p>
         <p className="timeline-item__score glow-text">{item.score}</p>

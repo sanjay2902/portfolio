@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <section className="section projects" id="projects">
       <div className="container">
-        <SectionHeading title="Projects" subtitle="Things I've built" />
+        <SectionHeading title="Projects" subtitle="Things I've built" number="03" />
 
         <div className="projects__grid">
           {projects.map((project, index) => (
@@ -24,14 +24,39 @@ const Projects = () => {
 const ProjectCard = ({ project, index }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
 
+  const techVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.05, delayChildren: 0.3 },
+    },
+  };
+
+  const techTagVariant = {
+    hidden: { opacity: 0, scale: 0.7 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: 'spring', stiffness: 300, damping: 20 },
+    },
+  };
+
   return (
     <motion.div
       ref={ref}
-      className="project-card glass-card"
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.12 }}
+      className="project-card glass-card gradient-border"
+      initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{
+        y: -8,
+        transition: { duration: 0.3 },
+      }}
     >
+      {/* Background project number */}
+      <span className="project-card__number">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+
       <div className="project-card__header">
         <div>
           <h3 className="project-card__title">{project.title}</h3>
@@ -45,21 +70,36 @@ const ProjectCard = ({ project, index }) => {
 
       <ul className="project-card__bullets">
         {project.bullets.map((bullet, i) => (
-          <li key={i} className="project-card__bullet">
+          <motion.li
+            key={i}
+            className="project-card__bullet"
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: index * 0.15 + 0.3 + i * 0.1, duration: 0.4 }}
+          >
             <span className="project-card__bullet-marker">▹</span>
             {bullet}
-          </li>
+          </motion.li>
         ))}
       </ul>
 
       <div className="project-card__footer">
-        <div className="project-card__tech">
+        <motion.div
+          className="project-card__tech"
+          variants={techVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+        >
           {project.tech.map((t) => (
-            <span key={t} className="project-card__tech-tag">
+            <motion.span
+              key={t}
+              className="project-card__tech-tag"
+              variants={techTagVariant}
+            >
               {t}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
         <div className="project-card__links">
           {project.github && (
             <a

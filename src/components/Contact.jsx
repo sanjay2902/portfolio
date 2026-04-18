@@ -35,24 +35,25 @@ const Contact = () => {
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.1 },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: { opacity: 0, y: 40, scale: 0.9, filter: 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.4 },
+      filter: 'blur(0px)',
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   return (
     <section className="section contact" id="contact">
       <div className="container">
-        <SectionHeading title="Get In Touch" subtitle="Let's connect and build something great" />
+        <SectionHeading title="Get In Touch" subtitle="Let's connect and build something great" number="05" />
 
         <motion.div
           className="contact__grid"
@@ -67,12 +68,22 @@ const Contact = () => {
               href={link.href}
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="contact-card glass-card"
+              className="contact-card glass-card gradient-border"
               variants={cardVariants}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.96 }}
             >
-              <div className="contact-card__icon">{link.icon}</div>
+              <div className="contact-card__icon">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  {link.icon}
+                </motion.div>
+              </div>
               <h4 className="contact-card__label">{link.label}</h4>
               <p className="contact-card__value">{link.value}</p>
             </motion.a>
@@ -81,10 +92,28 @@ const Contact = () => {
 
         <footer className="footer">
           <div className="footer__line" />
-          <p className="footer__text">
+          <motion.p 
+            className="footer__text"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
             © {new Date().getFullYear()} {personalInfo.name} — Built with{' '}
-            <FiHeart className="footer__heart" /> and React
-          </p>
+            <motion.span
+              animate={{
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              style={{ display: 'inline-flex' }}
+            >
+              <FiHeart className="footer__heart" />
+            </motion.span>
+            {' '}and React
+          </motion.p>
         </footer>
       </div>
     </section>

@@ -24,8 +24,8 @@
   padding-left: 40px;
 }
 
-.education__timeline::before {
-  content: '';
+/* Animated timeline track */
+.education__timeline-track {
   position: absolute;
   left: 14px;
   top: 0;
@@ -34,10 +34,12 @@
   background: linear-gradient(
     180deg,
     var(--accent-cyan) 0%,
-    var(--accent-violet) 100%
+    var(--accent-violet) 50%,
+    var(--accent-rose) 100%
   );
-  opacity: 0.3;
   border-radius: 10px;
+  transform-origin: top;
+  opacity: 0.4;
 }
 
 .timeline-item {
@@ -49,21 +51,40 @@
   margin-bottom: 0;
 }
 
+/* Pulsing dot */
 .timeline-item__dot {
   position: absolute;
   left: -33px;
   top: 22px;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: var(--accent-cyan);
   border-radius: 50%;
   border: 3px solid var(--bg-primary);
   box-shadow: 0 0 12px var(--accent-cyan-glow);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.timeline-item__dot-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+/* Card with tilt perspective */
 .timeline-item__card {
   padding: 24px 28px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item__card:hover {
+  transform: translateY(-4px) perspective(800px) rotateX(2deg) rotateY(-2deg);
 }
 
 .timeline-item__institution {

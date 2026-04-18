@@ -5,17 +5,30 @@
 }
 
 .skill-category {
-  padding: 28px;
+  padding: 30px;
 }
 
 .skill-category__title {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-cyan);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 18px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.skill-category__title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 10px;
+  opacity: 0.4;
 }
 
 .skill-category__tags {
@@ -26,24 +39,48 @@
 
 .skill-tag {
   display: inline-block;
-  padding: 8px 18px;
-  background: var(--accent-cyan-dim);
-  border: 1px solid rgba(0, 240, 255, 0.15);
+  padding: 8px 20px;
+  background: var(--tag-dim, var(--accent-cyan-dim));
+  border: 1px solid color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 20%, transparent);
   border-radius: 50px;
   font-family: var(--font-heading);
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--text-primary);
-  transition: all var(--transition-speed) ease;
   cursor: default;
+  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer on hover */
+.skill-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.skill-tag:hover::before {
+  left: 100%;
 }
 
 .skill-tag:hover {
-  background: rgba(0, 240, 255, 0.2);
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 18%, transparent);
+  border-color: var(--tag-color, var(--accent-cyan));
+  color: var(--tag-color, var(--accent-cyan));
+  box-shadow:
+    0 0 15px color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 20%, transparent),
+    0 0 30px color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 10%, transparent);
 }
 
 @media (max-width: 768px) {
@@ -54,6 +91,6 @@
 
 @media (max-width: 640px) {
   .skill-category {
-    padding: 20px;
+    padding: 22px;
   }
 }

@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiMail, FiPhone, FiGithub, FiLinkedin, FiChevronDown } from 'react-icons/fi';
@@ -8,20 +9,35 @@ import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
 
 const Hero = () => {
+  const orbitRef = useRef(null);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+
+  // Parallax effect on orbit
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      setMouseOffset({ x, y });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      filter: 'blur(0px)',
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -38,7 +54,7 @@ const Hero = () => {
     { Icon: SiNodedotjs, color: '#339933', label: 'Node.js' },
     { Icon: FaJava, color: '#ED8B00', label: 'Java' },
     { Icon: SiMongodb, color: '#47A248', label: 'MongoDB' },
-    { Icon: FaBrain, color: '#7b2fff', label: 'ML' },
+    { Icon: FaBrain, color: '#8b5cf6', label: 'ML' },
     { Icon: FaAws, color: '#FF9900', label: 'AWS' },
     { Icon: SiJavascript, color: '#F7DF1E', label: 'JS' },
   ];
@@ -55,6 +71,11 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
+          <motion.div className="hero__badge" variants={itemVariants}>
+            <span className="hero__badge-dot" />
+            Open to Internships
+          </motion.div>
+
           <motion.p className="hero__greeting" variants={itemVariants}>
             <span className="hero__greeting-accent">{'>'}</span> Hello, I'm
           </motion.p>
@@ -85,30 +106,36 @@ const Hero = () => {
           </motion.p>
 
           <motion.div className="hero__contacts" variants={itemVariants}>
-            {contactLinks.map((link) => (
-              <a
+            {contactLinks.map((link, i) => (
+              <motion.a
                 key={link.label}
                 href={link.href}
                 className="hero__contact-pill"
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                initial={{ opacity: 0, y: 20, rotate: -3 }}
+                animate={{ opacity: 1, y: 0, rotate: 0 }}
+                transition={{ delay: 1 + i * 0.1, duration: 0.5, ease: 'easeOut' }}
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.97 }}
               >
                 {link.icon}
                 <span>{link.label}</span>
-              </a>
+              </motion.a>
             ))}
           </motion.div>
 
           <motion.div className="hero__cta-row" variants={itemVariants}>
             <a
               href="#projects"
-              className="hero__cta"
+              className="hero__cta hero__cta--primary"
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              View My Work
+              <span className="hero__cta-text">View My Work</span>
+              <span className="hero__cta-shimmer" />
             </a>
             <a
               href="#about"
@@ -123,17 +150,22 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right side — orbital animation */}
+        {/* Right side — orbital animation with parallax */}
         <motion.div
+          ref={orbitRef}
           className="hero__right"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+          initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
+          }}
         >
           <div className="orbit-container">
             {/* Glowing center */}
             <div className="orbit-center">
               <span className="orbit-center__text">SB</span>
+              <div className="orbit-center__ring" />
             </div>
 
             {/* Ring 1 — inner */}
@@ -180,9 +212,9 @@ const Hero = () => {
 
       <motion.div
         className="hero__scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.5, duration: 0.8 }}
       >
         <FiChevronDown className="hero__scroll-icon" />
       </motion.div>
