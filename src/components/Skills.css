@@ -38,7 +38,9 @@
 }
 
 .skill-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 20px;
   background: var(--tag-dim, var(--accent-cyan-dim));
   border: 1px solid color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 20%, transparent);
@@ -51,6 +53,12 @@
   transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.skill-tag__icon {
+  font-size: 1rem;
+  color: var(--tag-color);
+  flex-shrink: 0;
 }
 
 /* Shimmer on hover */

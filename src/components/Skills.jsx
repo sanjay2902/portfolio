@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { 
+  SiPython, SiJavascript, SiReact, SiNodedotjs, SiMongodb, 
+  SiExpress, SiGithub, SiPostman, SiHtml5, SiCplusplus,
+  SiMysql
+} from 'react-icons/si';
+import { FaJava, FaAws, FaCode, FaCogs, FaBrain, FaCube } from 'react-icons/fa';
+import { FiDatabase } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
 import { skills } from '../data/portfolioData';
 import './Skills.css';
@@ -9,6 +16,27 @@ const categoryColors = {
   'Web Technologies': { color: '#8b5cf6', dim: 'rgba(139, 92, 246, 0.12)' },
   'Frameworks & Tools': { color: '#fb7185', dim: 'rgba(251, 113, 133, 0.12)' },
   Coursework: { color: '#34d399', dim: 'rgba(52, 211, 153, 0.12)' },
+};
+
+const skillIcons = {
+  'Python': SiPython,
+  'Java': FaJava,
+  'SQL': SiMysql,
+  'HTML': SiHtml5,
+  'Node.js': SiNodedotjs,
+  'MongoDB': SiMongodb,
+  'React': SiReact,
+  'Express.js': SiExpress,
+  'AWS': FaAws,
+  'GitHub': SiGithub,
+  'Postman': SiPostman,
+  'Data Structures & Algorithms': FaCode,
+  'Operating Systems': FaCogs,
+  'Database Management System': FiDatabase,
+  'Object Oriented Methodologies': FaCube,
+  'Machine Learning': FaBrain,
+  'C++': SiCplusplus,
+  'JavaScript': SiJavascript
 };
 
 const Skills = () => {
@@ -71,25 +99,29 @@ const SkillCategory = ({ category, items, catIndex, accent }) => {
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
       >
-        {items.map((skill) => (
-          <motion.span
-            key={skill}
-            className="skill-tag"
-            variants={tagVariants}
-            whileHover={{
-              scale: 1.08,
-              y: -4,
-              transition: { type: 'spring', stiffness: 400, damping: 15 },
-            }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              '--tag-color': accent.color,
-              '--tag-dim': accent.dim,
-            }}
-          >
-            {skill}
-          </motion.span>
-        ))}
+        {items.map((skill) => {
+          const Icon = skillIcons[skill];
+          return (
+            <motion.span
+              key={skill}
+              className="skill-tag"
+              variants={tagVariants}
+              whileHover={{
+                scale: 1.08,
+                y: -4,
+                transition: { type: 'spring', stiffness: 400, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                '--tag-color': accent.color,
+                '--tag-dim': accent.dim,
+              }}
+            >
+              {Icon && <Icon className="skill-tag__icon" />}
+              {skill}
+            </motion.span>
+          );
+        })}
       </motion.div>
     </motion.div>
   );
