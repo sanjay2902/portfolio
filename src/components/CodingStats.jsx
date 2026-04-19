@@ -197,7 +197,7 @@ const LeetCodeCard = ({ inView }) => {
 const GFGCard = ({ inView }) => {
   // GFG has no reliable public CORS-friendly API; using accurate hardcoded stats
   // from the profile: https://geeksforgeeks.org/user/sanjayboofbf4/
-  const stats = { school: 0, basic: 10, easy: 110, medium: 68, hard: 28, total: 216 };
+  const stats = { school: 0, basic: 15, easy: 100, medium: 46, hard: 20, total: 181 };
 
   const easyCount  = useCountUp(stats.easy,   1200, inView);
   const medCount   = useCountUp(stats.medium,  1200, inView);
@@ -235,7 +235,7 @@ const GFGCard = ({ inView }) => {
       </div>
 
       <div className="coding-card__rating">
-        <span className="coding-card__rating-badge gfg-badge">📊 Institute Rank #12</span>
+        <span className="coding-card__rating-badge gfg-badge">📊 Institute Rank #100</span>
       </div>
 
       <div className="coding-card__body">
@@ -298,7 +298,7 @@ const CodingStats = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           {[
-            { label: 'Total Problems Solved', value: '470+', color: 'var(--accent-cyan)' },
+            { label: 'Total Problems Solved', value: '1000+', color: 'var(--accent-cyan)' },
             { label: 'LeetCode Rating', value: '1875', color: '#fbbf24' },
             { label: 'LeetCode Rank', value: 'Knight 🏆', color: 'var(--accent-violet)' },
             { label: 'Platforms', value: '2 Active', color: 'var(--accent-emerald)' },
