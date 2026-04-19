@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiExternalLink, FiCode } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
+import GitHubStats from './GitHubStats';
 import './CodingStats.css';
 
 // Donut chart component using pure SVG
@@ -289,6 +290,8 @@ const CodingStats = () => {
           <LeetCodeCard inView={inView} />
           <GFGCard inView={inView} />
         </div>
+
+        <GitHubStats />
 
         {/* Combined summary bar */}
         <motion.div

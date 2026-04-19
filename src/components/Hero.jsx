@@ -164,7 +164,7 @@ const Hero = () => {
           <div className="orbit-container">
             {/* Glowing center */}
             <div className="orbit-center">
-              <span className="orbit-center__text">SB</span>
+              <img src="/assets/logo.png" alt="Sanjay B Logo" className="orbit-center__logo" />
               <div className="orbit-center__ring" />
             </div>
 
