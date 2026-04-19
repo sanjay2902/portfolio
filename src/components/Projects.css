@@ -31,60 +31,27 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
-.project-card__image-container {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.project-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-card:hover .project-card__image {
-  transform: scale(1.1);
-}
-
-.project-card__image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 18, 0.8) 100%);
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-card__image-overlay {
-  opacity: 0.3;
-}
-
 /* Large faded background number */
 .project-card__number {
   position: absolute;
-  bottom: 10px;
+  top: -10px;
   right: 16px;
   font-family: var(--font-heading);
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 800;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  opacity: 0.15;
+  opacity: 0.05;
   line-height: 1;
   pointer-events: none;
   user-select: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 .project-card__info {
-  padding: 24px;
+  padding: 32px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

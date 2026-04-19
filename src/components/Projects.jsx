@@ -85,16 +85,11 @@ const ProjectCard = ({ project, index }) => {
         transformStyle: 'preserve-3d',
       }}
     >
-      <div className="project-card__content" style={{ transform: 'translateZ(40px)' }}>
+      <div className="project-card__content">
         <div ref={ref}>
-          {/* Project Image Header */}
-          <div className="project-card__image-container">
-            <img src={project.image} alt={project.title} className="project-card__image" />
-            <div className="project-card__image-overlay" />
-            <span className="project-card__number">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
+          <span className="project-card__number">
+            {String(index + 1).padStart(2, '0')}
+          </span>
 
           <div className="project-card__info">
             <div className="project-card__header">
