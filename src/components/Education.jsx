@@ -9,7 +9,7 @@ const Education = () => {
   return (
     <section className="section education" id="about">
       <div className="container">
-        <SectionHeading title="About Me" subtitle="Get to know me" number="01" />
+        <SectionHeading title="About Me" subtitle="Get to know me" />
 
         <motion.p
           className="education__bio"

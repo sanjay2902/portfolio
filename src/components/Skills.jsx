@@ -43,7 +43,7 @@ const Skills = () => {
   return (
     <section className="section skills" id="skills">
       <div className="container">
-        <SectionHeading title="Tech Stack" subtitle="Technologies I work with" number="02" />
+        <SectionHeading title="Tech Stack" subtitle="Technologies I work with" />
 
         <div className="skills__grid">
           {Object.entries(skills).map(([category, items], catIndex) => (

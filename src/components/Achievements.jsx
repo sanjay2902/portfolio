@@ -31,7 +31,7 @@ const Achievements = () => {
   return (
     <section className="section achievements" id="achievements">
       <div className="container">
-        <SectionHeading title="Achievements" subtitle="Highlights & recognition" number="04" />
+        <SectionHeading title="Achievements" subtitle="Highlights & recognition" />
 
         <motion.div
           ref={ref}

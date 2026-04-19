@@ -53,7 +53,7 @@ const Contact = () => {
   return (
     <section className="section contact" id="contact">
       <div className="container">
-        <SectionHeading title="Get In Touch" subtitle="Let's connect and build something great" number="05" />
+        <SectionHeading title="Get In Touch" subtitle="Let's connect and build something great" />
 
         <motion.div
           className="contact__grid"
