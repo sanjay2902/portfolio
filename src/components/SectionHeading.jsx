@@ -32,7 +32,7 @@ const SectionHeading = ({ title, subtitle, number }) => {
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span className="section-heading__accent">//</span> {title}
+        {title}
       </motion.h2>
       {subtitle && (
         <motion.p

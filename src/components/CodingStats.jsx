@@ -11,27 +11,27 @@ const DonutChart = ({ segments, size = 140, strokeWidth = 16, label, total }) =>
   const cx = size / 2;
   const cy = size / 2;
 
-  let cumulative = 0;
+  let cumulativeOffset = 0;
   const arcs = segments
     .filter((s) => s.count > 0)
     .map((seg) => {
       const fraction = seg.count / total;
       const dashLen = fraction * circumference;
-      const offset = circumference - cumulative * circumference;
-      cumulative += fraction;
+      const offset = -cumulativeOffset;
+      cumulativeOffset += dashLen;
       return { ...seg, dashLen, offset };
     });
 
   return (
     <div className="donut-chart" style={{ width: size, height: size }}>
-      <svg width={size} height={size}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         {/* Background track */}
         <circle
           cx={cx}
           cy={cy}
           r={r}
           fill="none"
-          stroke="rgba(255,255,255,0.04)"
+          stroke="rgba(255,255,255,0.06)"
           strokeWidth={strokeWidth}
         />
         {arcs.map((arc, i) => (
@@ -49,8 +49,8 @@ const DonutChart = ({ segments, size = 140, strokeWidth = 16, label, total }) =>
             style={{
               transform: 'rotate(-90deg)',
               transformOrigin: 'center',
-              filter: `drop-shadow(0 0 6px ${arc.color}80)`,
-              transition: 'stroke-dasharray 1s ease',
+              filter: `drop-shadow(0 0 8px ${arc.color}60)`,
+              transition: 'all 1.5s cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           />
         ))}
@@ -278,7 +278,7 @@ const GFGCard = ({ inView }) => {
 // ─── Main Section ───────────────────────────────────────────────────────────
 const CodingStats = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
     <section className="section coding-stats" id="coding">
