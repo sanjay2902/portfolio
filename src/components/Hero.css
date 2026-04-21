@@ -66,7 +66,7 @@
 }
 
 .hero__greeting-accent {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   margin-right: 6px;
 }
 
@@ -74,12 +74,12 @@
   font-family: var(--font-heading);
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #00e5ff, #8b5cf6, #fb7185, #00e5ff);
-  background-size: 300% 300%;
+  background: var(--accent-gradient-nordic);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 6s ease-in-out infinite;
+  animation: gradient-shift 8s ease-in-out infinite;
   line-height: 1.15;
   margin-bottom: 16px;
   min-height: 1.2em;
@@ -124,15 +124,15 @@
 
 .hero__contact-pill svg {
   font-size: 0.95rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
 .hero__contact-pill:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  box-shadow: var(--glow-cyan);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: var(--glow-primary);
 }
 
 .hero__contact-pill:hover svg {
@@ -162,8 +162,8 @@
 
 /* Primary CTA with shimmer */
 .hero__cta--primary {
-  background: var(--accent-gradient-vivid);
-  color: #06060e;
+  background: var(--accent-gradient-nordic);
+  color: var(--bg-primary);
 }
 
 .hero__cta-text {
@@ -201,9 +201,9 @@
 }
 
 .hero__cta--outline:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  box-shadow: var(--glow-cyan);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: var(--glow-primary);
   transform: translateY(-3px);
 }
 
@@ -243,7 +243,7 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 2px solid rgba(0, 229, 255, 0.2);
+  border: 2px solid var(--accent-primary-dim);
   animation: pulse-ring 3s ease-in-out infinite;
 }
 
@@ -253,7 +253,7 @@
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  border: 1px dashed rgba(0, 229, 255, 0.08);
+  border: 1px dashed var(--accent-primary-dim);
 }
 
 .orbit-ring--1 {
@@ -343,8 +343,8 @@
 .orbit-pulse--3 { width: 150px; height: 150px; animation-delay: 2.6s; }
 
 @keyframes radar-pulse {
-  0% { width: 90px; height: 90px; opacity: 0.5; border-color: rgba(0, 229, 255, 0.3); }
-  100% { width: 400px; height: 400px; opacity: 0; border-color: rgba(0, 229, 255, 0); }
+  0% { width: 90px; height: 90px; opacity: 0.5; border-color: var(--accent-primary-glow); }
+  100% { width: 400px; height: 400px; opacity: 0; border-color: transparent; }
 }
 
 /* Scroll indicator */
@@ -358,9 +358,9 @@
 
 .hero__scroll-icon {
   font-size: 1.5rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   animation: bounceDown 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px var(--accent-cyan-glow));
+  filter: drop-shadow(0 0 8px var(--accent-primary-glow));
 }
 
 @keyframes bounceDown {

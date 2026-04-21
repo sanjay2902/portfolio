@@ -26,7 +26,7 @@
 
 .github-icon-main {
   font-size: 1.4rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
 }
 
 .github-stats__link {
@@ -37,7 +37,7 @@
 }
 
 .github-stats__link:hover {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
 }
 
 .github-stats__body {
@@ -69,7 +69,7 @@
   min-width: 700px;
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.15));
+  filter: drop-shadow(0 0 5px var(--accent-primary-glow));
 }
 
 .heatmap-overlay {
@@ -79,7 +79,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 30%, rgba(0, 240, 255, 0.03) 100%);
+  background: radial-gradient(circle at center, transparent 30%, var(--accent-primary-dim) 100%);
 }
 
 .github-metrics {

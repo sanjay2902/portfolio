@@ -7,7 +7,7 @@ const GitHubStats = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const stats = [
-    { label: 'Public repos', value: '15+', icon: <FiGitBranch />, color: '#00f0ff' },
+    { label: 'Public repos', value: '15+', icon: <FiGitBranch />, color: 'var(--accent-primary)' },
     { label: 'Total Stars', value: '20+', icon: <FiStar />, color: '#fbbf24' },
     { label: 'Contributions', value: '500+', icon: <FiActivity />, color: '#34d399' },
   ];
@@ -39,7 +39,7 @@ const GitHubStats = () => {
         {/* Real GitHub Contribution Heatmap SVG via ghchart API */}
         <div className="github-heatmap-container">
           <img 
-            src="https://ghchart.rshah.org/00f0ff/sanjay2902" 
+            src="https://ghchart.rshah.org/38bdf8/sanjay2902" 
             alt="Sanjay's GitHub Contributions" 
             className="github-heatmap"
           />

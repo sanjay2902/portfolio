@@ -19,12 +19,12 @@
 
 .contact-card__icon {
   font-size: 2.2rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 0 10px var(--accent-cyan-glow));
+  filter: drop-shadow(0 0 10px var(--accent-primary-glow));
 }
 
 .contact-card__label {
@@ -52,7 +52,7 @@
   background: var(--bg-card-hover);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 20px var(--accent-cyan-glow);
+    0 0 20px var(--accent-primary-glow);
 }
 
 /* Footer */

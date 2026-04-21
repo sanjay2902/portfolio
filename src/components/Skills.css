@@ -42,8 +42,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  background: var(--tag-dim, var(--accent-cyan-dim));
-  border: 1px solid color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 20%, transparent);
+  background: var(--tag-dim, var(--accent-primary-dim));
+  border: 1px solid color-mix(in srgb, var(--tag-color, var(--accent-primary)) 20%, transparent);
   border-radius: 50px;
   font-family: var(--font-heading);
   font-size: 0.82rem;
@@ -83,12 +83,12 @@
 }
 
 .skill-tag:hover {
-  background: color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 18%, transparent);
-  border-color: var(--tag-color, var(--accent-cyan));
-  color: var(--tag-color, var(--accent-cyan));
+  background: color-mix(in srgb, var(--tag-color, var(--accent-primary)) 18%, transparent);
+  border-color: var(--tag-color, var(--accent-primary));
+  color: var(--tag-color, var(--accent-primary));
   box-shadow:
-    0 0 15px color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 20%, transparent),
-    0 0 30px color-mix(in srgb, var(--tag-color, var(--accent-cyan)) 10%, transparent);
+    0 0 15px color-mix(in srgb, var(--tag-color, var(--accent-primary)) 20%, transparent),
+    0 0 30px color-mix(in srgb, var(--tag-color, var(--accent-primary)) 10%, transparent);
 }
 
 @media (max-width: 768px) {

@@ -298,9 +298,9 @@ const CodingStats = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           {[
-            { label: 'Total Problems Solved', value: '1000+', color: 'var(--accent-cyan)' },
+            { label: 'Total Problems Solved', value: '1000+', color: 'var(--accent-primary)' },
             { label: 'LeetCode Rating', value: '1875', color: '#fbbf24' },
-            { label: 'LeetCode Rank', value: 'Knight 🏆', color: 'var(--accent-violet)' },
+            { label: 'LeetCode Rank', value: 'Knight 🏆', color: 'var(--accent-secondary)' },
             { label: 'Platforms', value: '2 Active', color: 'var(--accent-emerald)' },
           ].map((stat, i) => (
             <motion.div
