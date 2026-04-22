@@ -19,11 +19,11 @@ const ParticleBackground = () => {
         },
       },
       color: {
-        value: ['#00f0ff', '#7b2fff'],
+        value: ['#38bdf8', '#1e293b'],
       },
       links: {
         enable: true,
-        color: '#00f0ff',
+        color: '#38bdf8',
         distance: 150,
         opacity: 0.12,
         width: 1,
@@ -62,7 +62,7 @@ const ParticleBackground = () => {
           distance: 140,
           links: {
             opacity: 0.3,
-            color: '#00f0ff',
+            color: '#38bdf8',
           },
         },
       },

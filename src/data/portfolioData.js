@@ -100,7 +100,7 @@ export const achievements = [
   },
   {
     icon: "💻",
-    text: "Solved 500+ coding problems across GeeksforGeeks and LeetCode. LeetCode Knight rating 1875.",
+    text: "Solved 1000+ coding problems across GeeksforGeeks and LeetCode. LeetCode Knight rating 1875.",
   },
   {
     icon: "🏅",
