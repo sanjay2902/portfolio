@@ -89,12 +89,6 @@
   color: #fbbf24;
 }
 
-.gfg-badge {
-  background: rgba(47, 141, 70, 0.1);
-  border-color: rgba(47, 141, 70, 0.25);
-  color: #34d399;
-}
-
 .coding-card__rating-val {
   font-family: var(--font-heading);
   font-size: 0.85rem;
@@ -188,31 +182,6 @@
   font-size: 0.8rem;
   font-weight: 700;
   text-align: right;
-}
-
-/* ─── Total row (GFG) ─────────────────── */
-.coding-card__total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.coding-card__total-label {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.coding-card__total-val {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 800;
-  background: var(--accent-gradient-nordic);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* ─── Loading spinner ─────────────────── */

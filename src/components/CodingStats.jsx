@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiExternalLink, FiCode } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
-import GitHubStats from './GitHubStats';
 import './CodingStats.css';
 
 // Donut chart component using pure SVG
@@ -205,8 +204,6 @@ const GFGCard = ({ inView }) => {
   const easyCount  = useCountUp(stats.easy,   1200, inView);
   const medCount   = useCountUp(stats.medium,  1200, inView);
   const hardCount  = useCountUp(stats.hard,    1200, inView);
-  const totalCount = useCountUp(stats.total,   1200, inView);
-
   const segments = [
     { label: 'Basic', count: stats.basic, color: '#60a5fa' },
     { label: 'Easy',  count: stats.easy,  color: '#34d399' },
@@ -237,10 +234,6 @@ const GFGCard = ({ inView }) => {
         </a>
       </div>
 
-      <div className="coding-card__rating">
-        <span className="coding-card__rating-badge gfg-badge">📊 Institute Rank #100</span>
-      </div>
-
       <div className="coding-card__body">
         <DonutChart segments={segments} total={stats.total} label="Solved" />
         <div className="coding-card__breakdown">
@@ -268,11 +261,6 @@ const GFGCard = ({ inView }) => {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="coding-card__total-row">
-        <span className="coding-card__total-label">Total Solved</span>
-        <span className="coding-card__total-val">{totalCount}</span>
       </div>
     </motion.div>
   );
@@ -321,7 +309,6 @@ const CodingStats = () => {
           ))}
         </motion.div>
 
-        <GitHubStats />
       </div>
     </section>
   );
