@@ -1,6 +1,6 @@
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 32px;
 }
 
@@ -34,7 +34,7 @@
 /* Large faded background number */
 .project-card__number {
   position: absolute;
-  top: -10px;
+  top: 12px;
   right: 16px;
   font-family: var(--font-heading);
   font-size: 6rem;
@@ -48,6 +48,34 @@
   pointer-events: none;
   user-select: none;
   z-index: 0;
+}
+
+.project-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(26, 27, 38, 0.42));
+  pointer-events: none;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card__media img {
+  transform: scale(1.04);
 }
 
 .project-card__info {

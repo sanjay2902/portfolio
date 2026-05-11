@@ -87,6 +87,12 @@ const ProjectCard = ({ project, index }) => {
     >
       <div className="project-card__content">
         <div ref={ref}>
+          {project.image && (
+            <div className="project-card__media">
+              <img src={project.image} alt={`${project.title} preview`} />
+            </div>
+          )}
+
           <span className="project-card__number">
             {String(index + 1).padStart(2, '0')}
           </span>

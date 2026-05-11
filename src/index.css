@@ -19,10 +19,13 @@
   --accent-primary: #7aa2f7;
   --accent-primary-dim: rgba(122, 162, 247, 0.1);
   --accent-primary-glow: rgba(122, 162, 247, 0.4);
+  --accent-cyan: var(--accent-primary);
   
   --accent-secondary: #bb9af7;
   --accent-secondary-dim: rgba(187, 154, 247, 0.12);
   --accent-secondary-glow: rgba(187, 154, 247, 0.4);
+  --accent-violet: var(--accent-secondary);
+  --accent-violet-glow: var(--accent-secondary-glow);
 
   --accent-emerald: #9ece6a; /* Forest Green */
   --accent-emerald-dim: rgba(158, 206, 106, 0.12);
@@ -42,6 +45,7 @@
 
   /* Typography */
   --font-heading: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing */
@@ -55,6 +59,7 @@
   --transition-speed: 0.35s;
   --glow-primary: 0 0 20px rgba(122, 162, 247, 0.25), 0 0 60px rgba(122, 162, 247, 0.1);
   --glow-secondary: 0 0 20px rgba(187, 154, 247, 0.25), 0 0 60px rgba(187, 154, 247, 0.1);
+  --glow-cyan: var(--glow-primary);
 }
 
 /* ============================================

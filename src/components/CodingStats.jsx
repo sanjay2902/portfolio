@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiExternalLink, FiCode } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
+import GitHubStats from './GitHubStats';
 import './CodingStats.css';
 
 // Donut chart component using pure SVG
@@ -11,16 +12,18 @@ const DonutChart = ({ segments, size = 140, strokeWidth = 16, label, total }) =>
   const cx = size / 2;
   const cy = size / 2;
 
-  let cumulativeOffset = 0;
-  const arcs = segments
+  const arcs = total > 0 ? segments
     .filter((s) => s.count > 0)
-    .map((seg) => {
+    .reduce((acc, seg) => {
+      const cumulativeOffset = acc.offset;
       const fraction = seg.count / total;
       const dashLen = fraction * circumference;
       const offset = -cumulativeOffset;
-      cumulativeOffset += dashLen;
-      return { ...seg, dashLen, offset };
-    });
+      return {
+        offset: cumulativeOffset + dashLen,
+        items: [...acc.items, { ...seg, dashLen, offset }],
+      };
+    }, { offset: 0, items: [] }).items : [];
 
   return (
     <div className="donut-chart" style={{ width: size, height: size }}>
@@ -317,6 +320,8 @@ const CodingStats = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <GitHubStats />
       </div>
     </section>
   );
