@@ -56,9 +56,7 @@ const Hero = () => {
             Open to Internships
           </motion.div>
 
-          <motion.p className="hero__greeting" variants={itemVariants}>
-            <span className="hero__greeting-accent">{'>'}</span> Portfolio / AI + Full Stack
-          </motion.p>
+
 
           <motion.h1 className="hero__name" variants={itemVariants}>
             {personalInfo.name}
@@ -77,11 +75,7 @@ const Hero = () => {
             workflows to NLP tools and real-time web platforms.
           </motion.p>
 
-          <motion.div className="hero__highlights" variants={itemVariants}>
-            <span>Medical AI</span>
-            <span>NLP</span>
-            <span>React + Node</span>
-          </motion.div>
+
 
           <motion.div className="hero__contacts" variants={itemVariants}>
             {contactLinks.map((link, i) => (
