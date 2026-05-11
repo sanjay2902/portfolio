@@ -1,28 +1,11 @@
-import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
-import { FiMail, FiPhone, FiGithub, FiLinkedin, FiChevronDown } from 'react-icons/fi';
+import { FiDownload, FiGithub, FiLinkedin, FiMail, FiChevronDown } from 'react-icons/fi';
 import { SiPython, SiReact, SiNodedotjs, SiMongodb, SiJavascript } from 'react-icons/si';
 import { FaJava, FaAws, FaBrain } from 'react-icons/fa';
-import ParticleBackground from './ParticleBackground';
 import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
 
 const Hero = () => {
-  const orbitRef = useRef(null);
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-
-  // Parallax effect on orbit
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setMouseOffset({ x, y });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,8 +25,7 @@ const Hero = () => {
   };
 
   const contactLinks = [
-    { icon: <FiMail />, label: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: <FiPhone />, label: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+    { icon: <FiMail />, label: 'Email', href: `mailto:${personalInfo.email}` },
     { icon: <FiLinkedin />, label: 'LinkedIn', href: personalInfo.linkedin },
     { icon: <FiGithub />, label: 'GitHub', href: personalInfo.github },
   ];
@@ -61,8 +43,6 @@ const Hero = () => {
 
   return (
     <section className="hero" id="hero">
-      <ParticleBackground />
-
       <div className="hero__split container">
         {/* Left side — text content */}
         <motion.div
@@ -77,24 +57,11 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className="hero__greeting" variants={itemVariants}>
-            <span className="hero__greeting-accent">{'>'}</span> Hello, I'm
+            <span className="hero__greeting-accent">{'>'}</span> Portfolio / AI + Full Stack
           </motion.p>
 
           <motion.h1 className="hero__name" variants={itemVariants}>
-            <TypeAnimation
-              sequence={[
-                personalInfo.name,
-                3000,
-                '',
-                500,
-                personalInfo.name,
-                5000,
-              ]}
-              wrapper="span"
-              speed={40}
-              repeat={Infinity}
-              cursor={true}
-            />
+            {personalInfo.name}
           </motion.h1>
 
           <motion.p className="hero__title" variants={itemVariants}>
@@ -104,6 +71,17 @@ const Hero = () => {
           <motion.p className="hero__subtitle" variants={itemVariants}>
             {personalInfo.subtitle}
           </motion.p>
+
+          <motion.p className="hero__summary" variants={itemVariants}>
+            I build practical AI/ML and full-stack systems, from medical image reasoning
+            workflows to NLP tools and real-time web platforms.
+          </motion.p>
+
+          <motion.div className="hero__highlights" variants={itemVariants}>
+            <span>Medical AI</span>
+            <span>NLP</span>
+            <span>React + Node</span>
+          </motion.div>
 
           <motion.div className="hero__contacts" variants={itemVariants}>
             {contactLinks.map((link, i) => (
@@ -135,31 +113,25 @@ const Hero = () => {
               }}
             >
               <span className="hero__cta-text">View My Work</span>
-              <span className="hero__cta-shimmer" />
             </a>
             <a
-              href="#about"
+              href={personalInfo.resume}
               className="hero__cta hero__cta--outline"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              About Me
+              <FiDownload />
+              Resume
             </a>
           </motion.div>
         </motion.div>
 
         {/* Right side — orbital animation with parallax */}
         <motion.div
-          ref={orbitRef}
           className="hero__right"
           initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
-          }}
         >
           <div className="orbit-container">
             {/* Glowing center */}

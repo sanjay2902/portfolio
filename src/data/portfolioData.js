@@ -1,11 +1,12 @@
 export const personalInfo = {
   name: "Sanjay B",
-  title: "AI/ML Enthusiast · Full-Stack Developer",
+  title: "AI/ML Builder | Full-Stack Developer",
   subtitle: "B.Tech IT @ MIT, Anna University",
   email: "sanjayboopathy32@gmail.com",
   phone: "+91-8667660435",
   linkedin: "https://www.linkedin.com/in/sanjay-b-2ab575252/",
   github: "https://github.com/sanjay2902",
+  resume: "/resume.pdf",
   bio: "I'm a passionate Information Technology student at MIT, Anna University, driven by a deep curiosity for AI/ML and full-stack development. I love building intelligent systems that solve real-world problems — from medical image analysis to real-time communication platforms. When I'm not coding, you'll find me on the Kabaddi court or organizing events with TEDc MIT.",
 };
 
@@ -87,24 +88,29 @@ export const projects = [
 
 export const achievements = [
   {
-    icon: "🏆",
-    text: "Ranked in the Top 3% out of 100K+ participants in Amazon National Coding Contest (by Scaler), earning a selection to Amazon ML Summer School 2025.",
+    metric: "Top 3%",
+    label: "Amazon National Coding Contest",
+    text: "Selected for Amazon ML Summer School 2025 from 100K+ participants.",
   },
   {
-    icon: "🥇",
-    text: "Finalist – National Level Coding Contest AlgoChamp by Apti-Tech.",
+    metric: "Finalist",
+    label: "AlgoChamp",
+    text: "National-level coding contest by Apti-Tech.",
   },
   {
-    icon: "🥈",
-    text: "Runner-up – Code Wars 2024, organized by ITA, Mutex 2024.",
+    metric: "Runner-up",
+    label: "Code Wars 2024",
+    text: "Competitive programming event organized by ITA, Mutex 2024.",
   },
   {
-    icon: "💻",
-    text: "Solved 1000+ coding problems across GeeksforGeeks and LeetCode. LeetCode Knight rating 1875.",
+    metric: "1000+",
+    label: "Coding Problems",
+    text: "Solved across GeeksforGeeks and LeetCode, with LeetCode Knight rating 1875.",
   },
   {
-    icon: "🏅",
-    text: "Represented the Tamil Nadu & Puducherry region in Kabaddi at the state level.",
+    metric: "State",
+    label: "Kabaddi",
+    text: "Represented the Tamil Nadu & Puducherry region at state level.",
   },
 ];
 

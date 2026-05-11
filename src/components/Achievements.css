@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  padding: 24px 28px;
+  padding: 20px 24px;
   position: relative;
   border-left: 3px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -28,12 +28,6 @@
   border-radius: 10px;
   opacity: 0;
   transition: opacity 0.4s ease;
-  animation: gradient-slide 3s linear infinite;
-}
-
-@keyframes gradient-slide {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 200%; }
 }
 
 .achievement-item:hover::after {
@@ -46,11 +40,25 @@
   box-shadow: var(--glow-cyan);
 }
 
-.achievement-item__icon {
-  font-size: 1.6rem;
+.achievement-item__metric {
+  min-width: 108px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-primary);
   flex-shrink: 0;
-  margin-top: 2px;
-  display: inline-block;
+  line-height: 1.35;
+}
+
+.achievement-item__content {
+  min-width: 0;
+}
+
+.achievement-item__label {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
 }
 
 .achievement-item__text {
@@ -122,6 +130,7 @@
   .achievement-item {
     padding: 18px 20px;
     gap: 12px;
+    flex-direction: column;
   }
 
   .responsibility__header {

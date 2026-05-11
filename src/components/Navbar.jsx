@@ -88,6 +88,16 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href={personalInfo.resume}
+              className="navbar__resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -125,6 +135,20 @@ const Navbar = () => {
                 {link.label}
               </motion.a>
             ))}
+            <motion.a
+              href={personalInfo.resume}
+              className="navbar__mobile-link navbar__mobile-link--resume"
+              target="_blank"
+              rel="noopener noreferrer"
+              custom={navLinks.length}
+              variants={mobileItemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={() => setMobileOpen(false)}
+            >
+              Resume
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

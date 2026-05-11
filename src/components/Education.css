@@ -69,12 +69,7 @@
 }
 
 .timeline-item__dot-pulse {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--accent-primary);
-  animation: pulse-ring 3s ease-in-out infinite;
+  display: none;
 }
 
 /* Card with tilt perspective */

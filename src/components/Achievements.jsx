@@ -51,20 +51,11 @@ const Achievements = () => {
                 transition: { duration: 0.2 },
               }}
             >
-              <motion.span
-                className="achievement-item__icon"
-                initial={{ scale: 0 }}
-                animate={inView ? { scale: 1 } : {}}
-                transition={{
-                  delay: 0.2 + index * 0.12,
-                  type: 'spring',
-                  stiffness: 400,
-                  damping: 10,
-                }}
-              >
-                {item.icon}
-              </motion.span>
-              <p className="achievement-item__text">{item.text}</p>
+              <span className="achievement-item__metric">{item.metric}</span>
+              <div className="achievement-item__content">
+                <h4 className="achievement-item__label">{item.label}</h4>
+                <p className="achievement-item__text">{item.text}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

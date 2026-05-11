@@ -7,14 +7,12 @@ import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import ScrollProgress from './components/ScrollProgress';
-import CursorGlow from './components/CursorGlow';
 import './App.css';
 
 function App() {
   return (
     <div className="app">
       <ScrollProgress />
-      <CursorGlow />
       <Navbar />
       <Hero />
       <Education />
