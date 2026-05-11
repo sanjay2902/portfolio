@@ -56,7 +56,6 @@ export const projects = [
       "Introduced an ontology-driven semantic understanding approach that translates medical knowledge into model-friendly prompts, achieving 92% accuracy.",
     ],
     tech: ["React", "Node.js", "Python", "BiomedCLIP"],
-    image: "/assets/vlm.png",
     github: "",
     demo: "",
   },
@@ -69,7 +68,6 @@ export const projects = [
       "Integrated Hugging Face Transformer model Pegasus for abstractive summarization within a robust application with comprehensive error handling.",
     ],
     tech: ["Python", "NLTK", "Transformers", "NetworkX"],
-    image: "/assets/summarizer.png",
     github: "",
     demo: "",
   },
@@ -82,7 +80,6 @@ export const projects = [
       "Achieved real-time communication between concurrent users by integrating WebSockets for live messaging features.",
     ],
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    image: "/assets/connect.png",
     github: "",
     demo: "",
   },
@@ -111,11 +108,20 @@ export const achievements = [
   },
 ];
 
-export const responsibility = {
-  title: "Core Member — TEDc MIT",
-  description:
-    "Core member of TEDc MIT's Event Management Team, managing events and intra-college competitions, and overseeing coordination and execution.",
-};
+export const responsibilities = [
+  {
+    title: "Placement Representative - Department of Information Technology",
+    period: "2025-2026",
+    description:
+      "Serving as the placement representative for the Department of Information Technology, coordinating placement-related communication and student support.",
+  },
+  {
+    title: "Core Member — TEDc MIT",
+    period: "",
+    description:
+      "Core member of TEDc MIT's Event Management Team, managing events and intra-college competitions, and overseeing coordination and execution.",
+  },
+];
 
 export const navLinks = [
   { label: "About", href: "#about" },

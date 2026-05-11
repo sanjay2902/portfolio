@@ -81,6 +81,15 @@
 
 .responsibility__card {
   padding: 24px 28px;
+  margin-bottom: 16px;
+}
+
+.responsibility__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
 .responsibility__title {
@@ -91,7 +100,16 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
+}
+
+.responsibility__period {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
 }
 
 .responsibility__desc {
@@ -104,5 +122,10 @@
   .achievement-item {
     padding: 18px 20px;
     gap: 12px;
+  }
+
+  .responsibility__header {
+    flex-direction: column;
+    gap: 8px;
   }
 }

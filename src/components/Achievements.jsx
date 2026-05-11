@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiAward } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
-import { achievements, responsibility } from '../data/portfolioData';
+import { achievements, responsibilities } from '../data/portfolioData';
 import './Achievements.css';
 
 const Achievements = () => {
@@ -81,10 +81,15 @@ const Achievements = () => {
             <FiAward className="responsibility__label-icon" />
             Position of Responsibility
           </h3>
-          <div className="responsibility__card glass-card gradient-border">
-            <h4 className="responsibility__title">{responsibility.title}</h4>
-            <p className="responsibility__desc">{responsibility.description}</p>
-          </div>
+          {responsibilities.map((item) => (
+            <div key={item.title} className="responsibility__card glass-card gradient-border">
+              <div className="responsibility__header">
+                <h4 className="responsibility__title">{item.title}</h4>
+                {item.period && <span className="responsibility__period">{item.period}</span>}
+              </div>
+              <p className="responsibility__desc">{item.description}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
