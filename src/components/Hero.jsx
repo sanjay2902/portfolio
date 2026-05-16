@@ -51,11 +51,6 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="hero__badge" variants={itemVariants}>
-            <span className="hero__badge-dot" />
-            Open to Internships
-          </motion.div>
-
 
 
           <motion.h1 className="hero__name" variants={itemVariants}>
@@ -130,7 +125,7 @@ const Hero = () => {
           <div className="orbit-container">
             {/* Glowing center */}
             <div className="orbit-center">
-              <img src="/assets/logo.png" alt="Sanjay B Logo" className="orbit-center__logo" />
+              <div className="orbit-center__monogram">SB</div>
               <div className="orbit-center__ring" />
             </div>
 
