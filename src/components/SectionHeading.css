@@ -4,7 +4,7 @@
 }
 
 .section-heading__number {
-  font-family: var(--font-heading);
+  font-family: var(--font-ui);
   font-size: 5rem;
   font-weight: 800;
   background: var(--accent-gradient-nordic);
@@ -24,7 +24,7 @@
 .section-heading__title {
   font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--text-primary);
   letter-spacing: -0.5px;
 }
