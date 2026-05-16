@@ -23,7 +23,7 @@
 
 .section-heading__title {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: var(--text-primary);
   letter-spacing: -0.5px;
@@ -52,7 +52,7 @@
 
 @media (max-width: 640px) {
   .section-heading__title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .section-heading__number {

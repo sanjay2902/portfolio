@@ -1,14 +1,15 @@
 .education__bio {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.85;
+  line-height: 1.8;
   max-width: 750px;
   margin-bottom: 50px;
 }
 
 .education__label {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 32px;
 }
@@ -83,11 +84,12 @@
 }
 
 .timeline-item__institution {
-  font-family: var(--font-heading);
+  font-family: var(--font-ui);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 
 .timeline-item__degree {
@@ -97,8 +99,8 @@
 }
 
 .timeline-item__score {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
   font-weight: 600;
   margin-bottom: 10px;
 }

@@ -25,12 +25,13 @@
 
 /* Logo with breathing glow */
 .navbar__logo {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
   transition: all var(--transition-speed);
   position: relative;
+  letter-spacing: -0.02em;
 }
 
 .navbar__logo:hover {
@@ -51,8 +52,8 @@
 }
 
 .navbar__link {
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-muted);
   padding: 8px 18px;
@@ -65,12 +66,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--bg-primary);
   background: var(--accent-primary);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 8px;
   transition: all var(--transition-speed);
 }
@@ -159,7 +160,7 @@
 }
 
 .navbar__mobile-link {
-  font-family: var(--font-heading);
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--text-secondary);
   padding: 14px 24px;
