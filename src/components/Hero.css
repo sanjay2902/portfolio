@@ -308,12 +308,27 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__scroll-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--accent-primary);
-  opacity: 0.65;
+  opacity: 0.7;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.hero__scroll-indicator:hover .hero__scroll-icon {
+  opacity: 1;
+  color: var(--accent-secondary);
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* ==================

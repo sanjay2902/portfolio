@@ -176,6 +176,10 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.5, duration: 0.8 }}
+        onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+        style={{ cursor: 'pointer' }}
+        whileHover={{ y: 4 }}
+        whileTap={{ scale: 0.9 }}
       >
         <FiChevronDown className="hero__scroll-icon" />
       </motion.div>
